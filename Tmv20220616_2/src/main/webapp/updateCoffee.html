@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Update Coffee</title>
+</head>
+<body>
+       咖啡名稱:<input type="text" id="coffee" value="Espresso"/><br/>
+            售價:<input type="text" id="sales" value="200"/><br/>
+            總量:<input type="text" id="total" value="10"/><br/>
+        <button onclick="update()">Update</button>
+     <form action="UpdateJSCoffee2Servlet" method="post"  onsubmit="return prepare()">
+            <input type="hidden" name="jsCoffee"  id="jsCoffee" />
+            <input type="submit" value="Send"/>
+        </form>
+    <script>
+            var data=[ ];
+           function update(){
+        	  var obj=new Object();
+          	  obj.cofName=document.getElementById("coffee").value;
+          	  obj.sales=parseInt(document.getElementById("sales").value);
+          	  obj.total=parseInt(document.getElementById("total").value);
+          	  data.push(obj);
+          	  alert("update obj added");
+           }
+           function prepare(){
+        	   if(data.length==0){
+        		   alert("No Update Data");
+        		   return false;
+        	   }
+         	  var st=JSON.stringify(data);
+         	  document.getElementById("jsCoffee").value=st;
+        	   
+        	   return true;
+           }
+    
+    </script>
+</body>
+</html>

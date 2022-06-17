@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Coffee Insert</title>
+</head>
+<body>
+            咖啡名稱:<input type="text" id="cofName" value="Brown Coffee"/><br/>
+            售價:<input type="text" id="sales" value="200"/><br/>
+            總量:<input type="text" id="total" value="10"/><br/>
+            供應商:<input type="text" id="supId" value="49"/><br/>
+            價格:<input type="text" id="price" value="30"/><br/>
+      <button onclick="add()">add</button>
+      <form action="CoffeeJson2Servlet" method="post"   onsubmit="return check()" >
+            <input type="hidden" name="coffee"  id="coffee"/>
+            <input type="submit" value="Send"   />
+        </form>
+   <script>
+           var data=[ ];
+           function add(){
+        	   var obj=new Object();
+         	  obj.cofName=document.getElementById("cofName").value;
+         	  obj.sales=parseInt(document.getElementById("sales").value);
+         	  obj.total=parseInt(document.getElementById("total").value);
+         	  obj.supId=parseInt(document.getElementById("supId").value);
+         	  obj.price=parseFloat(document.getElementById("price").value);
+         	  data.push(obj);
+         	  alert("obj added");
+           }
+          function check(){
+        	 if(data.length>0){
+        	      var st=JSON.stringify(data);
+        	      document.getElementById("coffee").value=st;
+        	      alert(st);
+        	      return true;
+        	 }else{
+        		  alert("No Data");        		  
+        	 }
+        	 
+        	  return false;
+          }
+   </script>
+</body>
+</html>

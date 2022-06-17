@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Get Servlet to DIV</title>
+</head>
+<body>
+<script src="js/jquery3.5.1.js"></script>
+<button onclick="getSP()">Execute Stored Procedure</button>
+<div id="message"></div>
+<script>
+       function result(data){
+    	   $("#message").html(data);
+       }
+       function getSP(){
+    	   $.get("SPOutparamServlet?city=Tokyo",result);
+       }
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery Hide Show</title>
+</head>
+<body>
+<script src="js/jquery3.5.1.js">
+</script>
+<a href="#" onclick="toggleDiv()">Toggle Div</a><br/>
+<a href="#" id="tg1">jQuery Toggle Div</a>
+<div id="div1"  style="visibility:visible">Toggle to Show or Hide</div>
+<div id="div2"  style="display:'' ">DIV2</div>
+<script>
+     window.onload=   function (){
+        	alert("body onload");
+      }
+       function toggleDiv(){
+    	     var div=document.getElementById("div1");
+    	     if(div.style.visibility=="hidden"){
+    	    	 div.style.visibility="visible";
+    	     }else{
+    	    	 div.style.visibility="hidden";
+    	     }
+       }
+</script>
+<script>
+     $(document).ready(function(){
+    	   $("#tg1").click(function(){
+    		    $("#div1").slideToggle();
+    	   });
+     });
+      
+</script>
+</body>
+</html>

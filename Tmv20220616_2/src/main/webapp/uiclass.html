@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>UI  style class</title>
+</head>
+<body style="background-color:black">
+<script src="js/jquery3.5.1.js"></script>
+<style>
+      .big{ font-size:36px}
+      .mid{ font-size:24px}
+      .small{ font-size:18px}
+</style>
+<div style="color:blue"  class="big">Hello</div>
+<div style="color:red"  class="mid">Hello</div>
+<div style="color:green"  class="small">Hello</div>
+<div style="background-color:black;color:yellow">Hello Color Test</div>
+<img src="#" id="pic1" width="600" height="400" alt="No Picture"/>
+<button onclick="load()">Load</button>
+<input type="text"  id="text1" />
+<script>
+  $(document).ready(function(){
+	  $("<div id='box'>Hello jQuery</div>").appendTo("body") ;
+	  $("#box").addClass("mid") ;
+
+  });
+  function load(){
+	  $("#pic1").attr("src","images/img1.jpg");
+	  var path=$("#pic1").attr("src");
+	  $("#text1").val( path );
+  }
+</script>
+</body>
+</html>
